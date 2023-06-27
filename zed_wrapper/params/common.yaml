@@ -42,8 +42,8 @@ depth:
 pos_tracking:
     pos_tracking_enabled:       true                            # True to enable positional tracking from start
     imu_fusion:                 true                            # enable/disable IMU fusion. When set to false, only the optical odometry will be used.
-    publish_tf:                 true                            # publish `odom -> base_link` TF
-    publish_map_tf:             true                            # publish `map -> odom` TF
+    publish_tf:                 false                            # publish `odom -> base_link` TF
+    publish_map_tf:             false                            # publish `map -> odom` TF
     map_frame:                  'map'                           # main frame
     odometry_frame:             'odom'                          # odometry frame
     area_memory_db_path:        'zed_area_memory.area'          # file loaded when the node starts to restore the "known visual features" map. 
@@ -54,7 +54,7 @@ pos_tracking:
     init_odom_with_first_valid_pose: true                       # Enable to initialize the odometry with the first valid pose
     path_pub_rate:              2.0                             # Camera trajectory publishing frequency
     path_max_count:             -1                              # use '-1' for unlimited path size
-    two_d_mode:                 false                           # Force navigation on a plane. If true the Z value will be fixed to "fixed_z_value", roll and pitch to zero
+    two_d_mode:                 true                           # Force navigation on a plane. If true the Z value will be fixed to "fixed_z_value", roll and pitch to zero
     fixed_z_value:              0.00                            # Value to be used for Z coordinate if `two_d_mode` is true    
 
 mapping:
@@ -67,7 +67,7 @@ mapping:
 sensors:
     sensors_timestamp_sync:     false                           # Synchronize Sensors messages timestamp with latest received frame
     max_pub_rate:               400.                            # max frequency of publishing of sensors data. MAX: 400. - MIN: grab rate
-    publish_imu_tf:             true                            # publish `IMU -> <cam_name>_left_camera_frame` TF
+    publish_imu_tf:             false                            # publish `IMU -> <cam_name>_left_camera_frame` TF
 
 object_detection:
     od_enabled:                 false                           # True to enable Object Detection [not available for ZED]
